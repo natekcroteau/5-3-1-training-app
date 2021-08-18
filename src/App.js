@@ -9,12 +9,16 @@ function App() {
     setEstimatedMax(event.target.value)
   }
 
+  function roundForPlates(weight) {
+    return (weight % 5) >= 2.5 ? parseInt(weight / 5) * 5 + 5 : parseInt(weight / 5) * 5
+  }
+
   function weekOne(max){
     let weekOneTargets = []
 
-    weekOneTargets.push(Math.round(max*0.65))
-    weekOneTargets.push(Math.round(max*0.75))
-    weekOneTargets.push(Math.round(max*0.85))
+    weekOneTargets.push(roundForPlates(max*0.65))
+    weekOneTargets.push(roundForPlates(max*0.75))
+    weekOneTargets.push(roundForPlates(max*0.85))
     
     return weekOneTargets
   }
@@ -22,9 +26,9 @@ function App() {
   function weekTwo(max){
     let weekTwoTargets = []
 
-    weekTwoTargets.push(Math.round(max*0.70))
-    weekTwoTargets.push(Math.round(max*0.80))
-    weekTwoTargets.push(Math.round(max*0.90))
+    weekTwoTargets.push(roundForPlates(max*0.70))
+    weekTwoTargets.push(roundForPlates(max*0.80))
+    weekTwoTargets.push(roundForPlates(max*0.90))
     
     return weekTwoTargets
   }
@@ -32,9 +36,9 @@ function App() {
   function weekThree(max){
     let weekThreeTargets = []
 
-    weekThreeTargets.push(Math.round(max*0.75))
-    weekThreeTargets.push(Math.round(max*0.85))
-    weekThreeTargets.push(Math.round(max*0.95))
+    weekThreeTargets.push(roundForPlates(max*0.75))
+    weekThreeTargets.push(roundForPlates(max*0.85))
+    weekThreeTargets.push(roundForPlates(max*0.95))
     
     return weekThreeTargets
   }
@@ -42,9 +46,9 @@ function App() {
   function weekFour(max){
     let weekFourTargets = []
 
-    weekFourTargets.push(Math.round(max*0.40))
-    weekFourTargets.push(Math.round(max*0.50))
-    weekFourTargets.push(Math.round(max*0.60))
+    weekFourTargets.push(roundForPlates(max*0.40))
+    weekFourTargets.push(roundForPlates(max*0.50))
+    weekFourTargets.push(roundForPlates(max*0.60))
     
     return weekFourTargets
   }
@@ -52,7 +56,7 @@ function App() {
   return (
     <div className="App">
       <input type="text" value={estimatedMax} onChange={handleChange} />
-      <span>{weekOne(estimatedMax)[0]}</span>
+      <span>{ weekOne(estimatedMax)[0]}</span>
     </div>
   );
 }
