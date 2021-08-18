@@ -56,7 +56,32 @@ function App() {
   return (
     <div className="App">
       <input type="text" value={estimatedMax} onChange={handleChange} />
-      <span>{ weekOne(estimatedMax)[0]}</span>
+      <div>
+        <div className="week-one">
+          Week One:
+          <div>Set 1: {weekOne(estimatedMax)[0]} lbs</div>
+          <div>Set 2: {weekOne(estimatedMax)[1]} lbs</div>
+          <div>Set 3: {weekOne(estimatedMax)[2]} lbs</div>
+        </div>
+        <div className="week-two">
+          Week Two:
+          <div>Set 1: {weekTwo(estimatedMax)[0]} lbs</div>
+          <div>Set 2: {weekTwo(estimatedMax)[1]} lbs</div>
+          <div>Set 3: {weekTwo(estimatedMax)[2]} lbs</div>
+        </div>
+        <div className="week-three">
+          Week Three:
+          <div>Set 1: {weekThree(estimatedMax)[0]} lbs</div>
+          <div>Set 2: {weekThree(estimatedMax)[1]} lbs</div>
+          <div>Set 3: {weekThree(estimatedMax)[2]} lbs</div>
+        </div>
+        <div className="week-four">
+          Week Four:
+          <div>Set 1: {weekFour(estimatedMax)[0]} lbs</div>
+          <div>Set 2: {weekFour(estimatedMax)[1]} lbs</div>
+          <div>Set 3: {weekFour(estimatedMax)[2]} lbs</div>
+        </div>
+      </div>
     </div>
   );
 }
