@@ -1,6 +1,13 @@
 import './App.css';
+import { useState } from 'react'
 
 function App() {
+
+  const [estimatedMax, setEstimatedMax] = useState()
+
+  const handleChange = (event) => {
+    setEstimatedMax(event.target.value)
+  }
 
   function weekOne(max){
     let weekOneTargets = []
@@ -44,7 +51,8 @@ function App() {
 
   return (
     <div className="App">
-      <span>{weekOne(100)[0]}</span>
+      <input type="text" value={estimatedMax} onChange={handleChange} />
+      <span>{weekOne(estimatedMax)[0]}</span>
     </div>
   );
 }
