@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      
+      <span>{weekOne(100)[0]}</span>
     </div>
   );
 }
