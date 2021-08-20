@@ -3,10 +3,24 @@ import { useState } from 'react'
 
 function App() {
 
-  const [estimatedMax, setEstimatedMax] = useState()
+  const [maxWeight, setmaxWeight] = useState("Max")
+  const [weightInput, setWeightInput] = useState("Weight")
+  const [repetitionsInput, setRepetitionsInput] = useState("Reps") 
 
-  const handleChange = (event) => {
-    setEstimatedMax(event.target.value)
+  const handleMaxChange = (event) => {
+    setmaxWeight(event.target.value)
+  }
+
+  const handleWeightInputChange = (event) => {
+    setWeightInput(event.target.value)
+  }
+
+  const handleRepetitionsInputChange = (event) => {
+    setRepetitionsInput(event.target.value)
+  }
+
+  function brzyckiEquation(){
+
   }
 
   function roundForPlates(weight) {
@@ -55,31 +69,39 @@ function App() {
 
   return (
     <div className="App">
-      <input type="text" value={estimatedMax} onChange={handleChange} />
-      <div>
+      <div className="max-estimator">
+        <h2>Estimate Your 1RM</h2>
+        <input type="text" value={weightInput} onChange={handleWeightInputChange} />
+        <input type="text" value={repetitionsInput} onChange={handleRepetitionsInputChange} />
+        <input type="submit" onSubmit={brzyckiEquation} />
+        <div>{brzyckiEquation}</div>
+      </div>
+      <div className="cycle-calculations">
+      <h2>Calculate Your 5/3/1 Weights</h2>
+      <input type="text" value={maxWeight} onChange={handleMaxChange} />
         <div className="week-one">
           Week One:
-          <div>Set 1: {weekOne(estimatedMax)[0]} lbs</div>
-          <div>Set 2: {weekOne(estimatedMax)[1]} lbs</div>
-          <div>Set 3: {weekOne(estimatedMax)[2]} lbs</div>
+          <div>Set 1: {weekOne(maxWeight)[0]} lbs</div>
+          <div>Set 2: {weekOne(maxWeight)[1]} lbs</div>
+          <div>Set 3: {weekOne(maxWeight)[2]} lbs</div>
         </div>
         <div className="week-two">
           Week Two:
-          <div>Set 1: {weekTwo(estimatedMax)[0]} lbs</div>
-          <div>Set 2: {weekTwo(estimatedMax)[1]} lbs</div>
-          <div>Set 3: {weekTwo(estimatedMax)[2]} lbs</div>
+          <div>Set 1: {weekTwo(maxWeight)[0]} lbs</div>
+          <div>Set 2: {weekTwo(maxWeight)[1]} lbs</div>
+          <div>Set 3: {weekTwo(maxWeight)[2]} lbs</div>
         </div>
         <div className="week-three">
           Week Three:
-          <div>Set 1: {weekThree(estimatedMax)[0]} lbs</div>
-          <div>Set 2: {weekThree(estimatedMax)[1]} lbs</div>
-          <div>Set 3: {weekThree(estimatedMax)[2]} lbs</div>
+          <div>Set 1: {weekThree(maxWeight)[0]} lbs</div>
+          <div>Set 2: {weekThree(maxWeight)[1]} lbs</div>
+          <div>Set 3: {weekThree(maxWeight)[2]} lbs</div>
         </div>
         <div className="week-four">
           Week Four:
-          <div>Set 1: {weekFour(estimatedMax)[0]} lbs</div>
-          <div>Set 2: {weekFour(estimatedMax)[1]} lbs</div>
-          <div>Set 3: {weekFour(estimatedMax)[2]} lbs</div>
+          <div>Set 1: {weekFour(maxWeight)[0]} lbs</div>
+          <div>Set 2: {weekFour(maxWeight)[1]} lbs</div>
+          <div>Set 3: {weekFour(maxWeight)[2]} lbs</div>
         </div>
       </div>
     </div>
