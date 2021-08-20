@@ -3,10 +3,12 @@ import { useState } from 'react'
 
 function App() {
 
-  const [maxWeight, setMaxWeight] = useState("Max")
+  const [maxWeight, setMaxWeight] = useState("1RM")
   const [weightInput, setWeightInput] = useState("Weight")
   const [repetitionsInput, setRepetitionsInput] = useState("Reps") 
   const [estimatedMax, setEstimatedMax] = useState("") 
+
+
 
   const handleMaxChange = (event) => {
     setMaxWeight(event.target.value)
@@ -20,19 +22,25 @@ function App() {
     setRepetitionsInput(event.target.value)
   }
 
-  // const handleEstimatedSubmit = (event) => {
-  //   event.preventDefault()
-  //   return brzyckiEquation(weightInput, repetitionsInput)
-  // }
+  const handleEstimatedSubmit = (event) => {
+    event.preventDefault()
+    let result = brzyckiEquation(weightInput, repetitionsInput)
+    setEstimatedMax(result)
+  }
 
-  // function brzyckiEquation(weightInput, repetitionsInput){
-  //   let result = weightInput/(1.0278-(0.0278*repetitionsInput))
-  //   setEstimatedMax(result)
-  // }
+
+
+  function brzyckiEquation(weight, repetitions){
+    return weight/(1.0278-(0.0278*repetitions))
+  }
+
+
 
   function roundForPlates(weight) {
     return (weight % 5) >= 2.5 ? parseInt(weight / 5) * 5 + 5 : parseInt(weight / 5) * 5
   }
+
+
 
   function weekOne(max){
     let weekOneTargets = []
@@ -76,14 +84,19 @@ function App() {
 
   return (
     <div className="App">
+
       <div className="max-estimator">
-        <h2>Estimate Your 1RM</h2>
-        <input type="text" value={weightInput} onChange={handleWeightInputChange} />
-        <input type="text" value={repetitionsInput} onChange={handleRepetitionsInputChange} />
-        {/* <input type="submit" onSubmit={handleEstimatedSubmit} /> */}
+        <h2>Estimate Your 1RM using the Brzycki Equation</h2>
+        <form onSubmit={handleEstimatedSubmit}>
+          <input type="text" value={weightInput} onChange={handleWeightInputChange} />
+          <input type="text" value={repetitionsInput} onChange={handleRepetitionsInputChange} />
+          <input type="submit" />
+        </form>
+        <h5>Your Estimated 1RM = {estimatedMax}</h5>
       </div>
+
       <div className="cycle-calculations">
-      <h2>Calculate Your 5/3/1 Weights</h2>
+      <h2>Calculate Your 5/3/1 Training Loads</h2>
       <input type="text" value={maxWeight} onChange={handleMaxChange} />
         <div className="week-one">
           Week One:
@@ -110,6 +123,7 @@ function App() {
           <div>Set 3: {weekFour(maxWeight)[2]} lbs</div>
         </div>
       </div>
+      
     </div>
   );
 }
