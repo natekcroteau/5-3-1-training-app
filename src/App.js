@@ -3,12 +3,13 @@ import { useState } from 'react'
 
 function App() {
 
-  const [maxWeight, setmaxWeight] = useState("Max")
+  const [maxWeight, setMaxWeight] = useState("Max")
   const [weightInput, setWeightInput] = useState("Weight")
   const [repetitionsInput, setRepetitionsInput] = useState("Reps") 
+  const [estimatedMax, setEstimatedMax] = useState("") 
 
   const handleMaxChange = (event) => {
-    setmaxWeight(event.target.value)
+    setMaxWeight(event.target.value)
   }
 
   const handleWeightInputChange = (event) => {
@@ -19,9 +20,15 @@ function App() {
     setRepetitionsInput(event.target.value)
   }
 
-  function brzyckiEquation(){
+  // const handleEstimatedSubmit = (event) => {
+  //   event.preventDefault()
+  //   return brzyckiEquation(weightInput, repetitionsInput)
+  // }
 
-  }
+  // function brzyckiEquation(weightInput, repetitionsInput){
+  //   let result = weightInput/(1.0278-(0.0278*repetitionsInput))
+  //   setEstimatedMax(result)
+  // }
 
   function roundForPlates(weight) {
     return (weight % 5) >= 2.5 ? parseInt(weight / 5) * 5 + 5 : parseInt(weight / 5) * 5
@@ -73,8 +80,7 @@ function App() {
         <h2>Estimate Your 1RM</h2>
         <input type="text" value={weightInput} onChange={handleWeightInputChange} />
         <input type="text" value={repetitionsInput} onChange={handleRepetitionsInputChange} />
-        <input type="submit" onSubmit={brzyckiEquation} />
-        <div>{brzyckiEquation}</div>
+        {/* <input type="submit" onSubmit={handleEstimatedSubmit} /> */}
       </div>
       <div className="cycle-calculations">
       <h2>Calculate Your 5/3/1 Weights</h2>
