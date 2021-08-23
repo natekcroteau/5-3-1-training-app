@@ -2,9 +2,11 @@ import { useState } from 'react'
 
 
 
-export default function CycleEstimates(props){
+export default function CycleEstimates(){
 
-    const {roundForPlates} = props
+    function roundForPlates(weight) {
+        return (weight % 5) >= 2.5 ? parseInt(weight / 5) * 5 + 5 : parseInt(weight / 5) * 5
+      }
 
     const [maxWeight, setMaxWeight] = useState("1RM")
 
