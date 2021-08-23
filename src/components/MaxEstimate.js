@@ -2,7 +2,9 @@ import { useState } from 'react'
 
 
 
-export default function MaxEstimate() {
+export default function MaxEstimate(props) {
+
+    const { roundForPlates } = props
 
     const [weightInput, setWeightInput] = useState("Weight")
     const [repetitionsInput, setRepetitionsInput] = useState("Reps") 
@@ -19,7 +21,7 @@ export default function MaxEstimate() {
     const handleEstimatedSubmit = (event) => {
       event.preventDefault()
       let result = brzyckiEquation(weightInput, repetitionsInput)
-      setEstimatedMax(result)
+      setEstimatedMax(roundForPlates(result))
     }
   
     function brzyckiEquation(weight, repetitions){
@@ -34,7 +36,7 @@ export default function MaxEstimate() {
                 <input type="text" value={repetitionsInput} onChange={handleRepetitionsInputChange} />
                 <input type="submit" />
             </form>
-            <h5>Your Estimated 1RM = {estimatedMax}</h5>
+            <h5>Your Estimated 1RM = {estimatedMax} lbs</h5>
         </div>
     )
 }

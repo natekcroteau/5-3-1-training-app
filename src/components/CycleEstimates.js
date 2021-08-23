@@ -1,12 +1,11 @@
 import { useState } from 'react'
+import '../App.css'
 
 
 
-export default function CycleEstimates(){
+export default function CycleEstimates(props){
 
-    function roundForPlates(weight) {
-        return (weight % 5) >= 2.5 ? parseInt(weight / 5) * 5 + 5 : parseInt(weight / 5) * 5
-      }
+    const { roundForPlates } = props
 
     const [maxWeight, setMaxWeight] = useState("1RM")
 
@@ -58,25 +57,25 @@ export default function CycleEstimates(){
         <div className="cycle-calculations">
         <h2>Calculate Your 5/3/1 Training Loads</h2>
         <input type="text" value={maxWeight} onChange={handleMaxChange} />
-        <div className="week-one">
+        <div className="cycle-week">
             Week One:
             <div>Set 1: {weekOne(maxWeight)[0]} lbs</div>
             <div>Set 2: {weekOne(maxWeight)[1]} lbs</div>
             <div>Set 3: {weekOne(maxWeight)[2]} lbs</div>
         </div>
-        <div className="week-two">
+        <div className="cycle-week">
             Week Two:
             <div>Set 1: {weekTwo(maxWeight)[0]} lbs</div>
             <div>Set 2: {weekTwo(maxWeight)[1]} lbs</div>
             <div>Set 3: {weekTwo(maxWeight)[2]} lbs</div>
         </div>
-        <div className="week-three">
+        <div className="cycle-week">
             Week Three:
             <div>Set 1: {weekThree(maxWeight)[0]} lbs</div>
             <div>Set 2: {weekThree(maxWeight)[1]} lbs</div>
             <div>Set 3: {weekThree(maxWeight)[2]} lbs</div>
         </div>
-        <div className="week-four">
+        <div className="cycle-week">
             Week Four:
             <div>Set 1: {weekFour(maxWeight)[0]} lbs</div>
             <div>Set 2: {weekFour(maxWeight)[1]} lbs</div>
