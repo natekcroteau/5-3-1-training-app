@@ -1,15 +1,19 @@
 .App{
     background-color: mintcream;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .cycle-calculations{
-    border: 1px black solid;
+    width: 50%;
 }
 .cycle-week{
     border: 1px black solid;
 }
 
 .max-estimator{
-    border: 1px black solid;
+    width: 50%;
 }
 
