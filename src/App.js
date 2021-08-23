@@ -1,129 +1,18 @@
-import './App.css';
-import { useState } from 'react'
+import './App.css'
+import CycleEstimates from './components/CycleEstimates'
+import MaxEstimate from './components/MaxEstimate'
 
 function App() {
-
-  const [maxWeight, setMaxWeight] = useState("1RM")
-  const [weightInput, setWeightInput] = useState("Weight")
-  const [repetitionsInput, setRepetitionsInput] = useState("Reps") 
-  const [estimatedMax, setEstimatedMax] = useState("") 
-
-
-
-  const handleMaxChange = (event) => {
-    setMaxWeight(event.target.value)
-  }
-
-  const handleWeightInputChange = (event) => {
-    setWeightInput(event.target.value)
-  }
-
-  const handleRepetitionsInputChange = (event) => {
-    setRepetitionsInput(event.target.value)
-  }
-
-  const handleEstimatedSubmit = (event) => {
-    event.preventDefault()
-    let result = brzyckiEquation(weightInput, repetitionsInput)
-    setEstimatedMax(result)
-  }
-
-
-
-  function brzyckiEquation(weight, repetitions){
-    return weight/(1.0278-(0.0278*repetitions))
-  }
-
 
 
   function roundForPlates(weight) {
     return (weight % 5) >= 2.5 ? parseInt(weight / 5) * 5 + 5 : parseInt(weight / 5) * 5
   }
 
-
-
-  function weekOne(max){
-    let weekOneTargets = []
-
-    weekOneTargets.push(roundForPlates(max*0.65))
-    weekOneTargets.push(roundForPlates(max*0.75))
-    weekOneTargets.push(roundForPlates(max*0.85))
-    
-    return weekOneTargets
-  }
-
-  function weekTwo(max){
-    let weekTwoTargets = []
-
-    weekTwoTargets.push(roundForPlates(max*0.70))
-    weekTwoTargets.push(roundForPlates(max*0.80))
-    weekTwoTargets.push(roundForPlates(max*0.90))
-    
-    return weekTwoTargets
-  }
-
-  function weekThree(max){
-    let weekThreeTargets = []
-
-    weekThreeTargets.push(roundForPlates(max*0.75))
-    weekThreeTargets.push(roundForPlates(max*0.85))
-    weekThreeTargets.push(roundForPlates(max*0.95))
-    
-    return weekThreeTargets
-  }
-
-  function weekFour(max){
-    let weekFourTargets = []
-
-    weekFourTargets.push(roundForPlates(max*0.40))
-    weekFourTargets.push(roundForPlates(max*0.50))
-    weekFourTargets.push(roundForPlates(max*0.60))
-    
-    return weekFourTargets
-  }
-
   return (
     <div className="App">
-
-      <div className="max-estimator">
-        <h2>Estimate Your 1RM using the Brzycki Equation</h2>
-        <form onSubmit={handleEstimatedSubmit}>
-          <input type="text" value={weightInput} onChange={handleWeightInputChange} />
-          <input type="text" value={repetitionsInput} onChange={handleRepetitionsInputChange} />
-          <input type="submit" />
-        </form>
-        <h5>Your Estimated 1RM = {estimatedMax}</h5>
-      </div>
-
-      <div className="cycle-calculations">
-      <h2>Calculate Your 5/3/1 Training Loads</h2>
-      <input type="text" value={maxWeight} onChange={handleMaxChange} />
-        <div className="week-one">
-          Week One:
-          <div>Set 1: {weekOne(maxWeight)[0]} lbs</div>
-          <div>Set 2: {weekOne(maxWeight)[1]} lbs</div>
-          <div>Set 3: {weekOne(maxWeight)[2]} lbs</div>
-        </div>
-        <div className="week-two">
-          Week Two:
-          <div>Set 1: {weekTwo(maxWeight)[0]} lbs</div>
-          <div>Set 2: {weekTwo(maxWeight)[1]} lbs</div>
-          <div>Set 3: {weekTwo(maxWeight)[2]} lbs</div>
-        </div>
-        <div className="week-three">
-          Week Three:
-          <div>Set 1: {weekThree(maxWeight)[0]} lbs</div>
-          <div>Set 2: {weekThree(maxWeight)[1]} lbs</div>
-          <div>Set 3: {weekThree(maxWeight)[2]} lbs</div>
-        </div>
-        <div className="week-four">
-          Week Four:
-          <div>Set 1: {weekFour(maxWeight)[0]} lbs</div>
-          <div>Set 2: {weekFour(maxWeight)[1]} lbs</div>
-          <div>Set 3: {weekFour(maxWeight)[2]} lbs</div>
-        </div>
-      </div>
-      
+      <CycleEstimates roundForPlates={roundForPlates} />
+      <MaxEstimate />
     </div>
   );
 }
