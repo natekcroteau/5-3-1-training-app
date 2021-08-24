@@ -7,7 +7,7 @@ export default function CycleEstimates(props){
 
     const { roundForPlates } = props
 
-    const [maxWeight, setMaxWeight] = useState("1RM")
+    const [maxWeight, setMaxWeight] = useState(0)
 
     const handleMaxChange = (event) => {
         setMaxWeight(event.target.value)
@@ -55,28 +55,29 @@ export default function CycleEstimates(props){
 
     return (
         <div className="cycle-calculations">
-        <h2>Calculate Your 5/3/1 Training Loads</h2>
+        <h2>Calculate 5/3/1 Training Loads</h2>
+        <label>Current 1RM</label>
         <input type="text" value={maxWeight} onChange={handleMaxChange} />
+        <h4>Week One:</h4>
         <div className="cycle-week">
-            Week One:
             <div>Set 1: {weekOne(maxWeight)[0]} lbs x 5 reps</div>
             <div>Set 2: {weekOne(maxWeight)[1]} lbs x 5 reps</div>
             <div>Set 3: {weekOne(maxWeight)[2]} lbs x 5+ reps</div>
         </div>
+        <h4>Week Two:</h4>
         <div className="cycle-week">
-            Week Two:
             <div>Set 1: {weekTwo(maxWeight)[0]} lbs x 3 reps</div>
             <div>Set 2: {weekTwo(maxWeight)[1]} lbs x 3 reps</div>
             <div>Set 3: {weekTwo(maxWeight)[2]} lbs x 3+ reps</div>
         </div>
+        <h4>Week Three:</h4>
         <div className="cycle-week">
-            Week Three:
             <div>Set 1: {weekThree(maxWeight)[0]} lbs x 5 reps</div>
             <div>Set 2: {weekThree(maxWeight)[1]} lbs x 3 reps</div>
             <div>Set 3: {weekThree(maxWeight)[2]} lbs x 1+ reps</div>
         </div>
+        <h4>Week Four:</h4>
         <div className="cycle-week">
-            Week Four:
             <div>Set 1: {weekFour(maxWeight)[0]} lbs x 5 reps</div>
             <div>Set 2: {weekFour(maxWeight)[1]} lbs x 5 reps</div>
             <div>Set 3: {weekFour(maxWeight)[2]} lbs x 5 reps</div>

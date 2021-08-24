@@ -10,8 +10,8 @@ function App() {
 
   return (
     <div className="App">
-      <CycleEstimates roundForPlates={roundForPlates} />
       <MaxEstimate roundForPlates={roundForPlates} />
+      <CycleEstimates roundForPlates={roundForPlates} />
     </div>
   );
 }
