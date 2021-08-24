@@ -1,19 +1,30 @@
 .App{
-    background-color: mintcream;
+    background-color: rgb(211, 249, 230);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .cycle-calculations{
     width: 50%;
+    height: 100%;
+    padding: 8px;
+    display: flexbox;
+    justify-content: center;
+    align-content: center;
 }
 .cycle-week{
-    border: 1px black solid;
+    background-color: mintcream;
+    border-radius: 8px;    
+    margin: 8px;
+    width: 200px;
 }
 
 .max-estimator{
     width: 50%;
+    height: 100%;
+    padding: 8px;
 }
 
