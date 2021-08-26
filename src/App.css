@@ -10,7 +10,8 @@
 
 .cycle-calculations{
     width: 50%;
-    padding: 4px;
+    height: 800px;
+    padding: 8px;
     border: 2 px mintcream solid;
     border-radius: 8px;
     display: flex;
@@ -18,11 +19,19 @@
     align-items: center;
 
 }
+.cycle-month{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+}
 .cycle-week{
     background-color: mintcream;
-    width: 184px;
-    margin: 4px;
-    padding: 4px;
+    width: 200px;
+    margin: 8px;
+    padding: 8px;
+    border:rgb(183, 250, 216) 2px solid;
     border-radius: 8px;    
 }
 
