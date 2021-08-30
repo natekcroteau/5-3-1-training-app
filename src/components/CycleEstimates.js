@@ -65,7 +65,7 @@ export default function CycleEstimates(props){
 
     return (
         <div className="cycle-calculations">
-            <h2>Calculate 5/3/1 Training Loads</h2>
+            <h3>Calculate 5/3/1 Training Loads</h3>
             <label>Current 1RM</label>
             <input type="text" value={maxWeight} onChange={handleMaxChange} />
             <div className="cycle-month">
@@ -94,11 +94,11 @@ export default function CycleEstimates(props){
                     <div>Set 3: {weekFour(maxWeight)[2]} lbs x 5 reps</div>
                 </div>
             </div>
-            {/* <form onSubmit={handleCycleSubmission} >
+            <form onSubmit={handleCycleSubmission} >
                 <label>Which Lift? </label>
                 <input type="text" value={lift} onChange={handleLiftChange} />
                 <input type="submit" value="Save To Log"/>
-            </form> */}
+            </form>
         </div>
     )
 }

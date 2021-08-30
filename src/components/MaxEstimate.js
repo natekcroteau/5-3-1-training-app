@@ -6,8 +6,8 @@ export default function MaxEstimate(props) {
 
     const { roundForPlates } = props
 
-    const [weightInput, setWeightInput] = useState("Weight")
-    const [repetitionsInput, setRepetitionsInput] = useState("Reps") 
+    const [weightInput, setWeightInput] = useState("lbs")
+    const [repetitionsInput, setRepetitionsInput] = useState("reps") 
     const [estimatedMax, setEstimatedMax] = useState(0) 
   
     const handleWeightInputChange = (event) => {
@@ -30,7 +30,7 @@ export default function MaxEstimate(props) {
 
     return (
         <div className="max-estimator">
-            <h2>Estimate Your 1RM Using The Brzycki Equation</h2>
+            <h3>Estimate Your 1RM Using The Brzycki Equation</h3>
             <form onSubmit={handleEstimatedSubmit}>
                 <input type="text" value={weightInput} onChange={handleWeightInputChange} />
                 <input type="text" value={repetitionsInput} onChange={handleRepetitionsInputChange} />
