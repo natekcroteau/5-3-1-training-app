@@ -5,10 +5,12 @@
     align-items: center;
 }
 .app-header{
-    width: 100%;
+    width: 60%;
     height: 160px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding-bottom: 24px;
+
 }
 .app-main{
     display: flex;
@@ -24,9 +26,12 @@
     flex-flow: column wrap;
     justify-content:space-evenly;
     align-items: center;
-    width: 176px;
+    width: 200px;
 }
-
+.account-icon{
+    height: 152px;
+    width: fit-content;
+}
 
 .cycle-calculations{
     width: 48%;
@@ -69,6 +74,5 @@
     background-color: mintcream;
     border:rgb(183, 250, 216) 2px solid;
     border-radius: 8px;    
-
 }
 

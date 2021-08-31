@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import '../App.css'
+import { GiWeightLiftingDown } from 'react-icons/gi'
+
 
 
 
@@ -27,7 +29,7 @@ export default function Account(){
 
     return(
         <>
-            <h1>5/3/1 Training Planner</h1>
+            <GiWeightLiftingDown className="account-icon" />
             <form className="account">
                 <label>Email</label>
                 <input type="text" onChange={handleEmailChange} value={email}/>
