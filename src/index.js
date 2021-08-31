@@ -6,17 +6,11 @@ import App from './App';
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
 
-const user = (state={
-    userName: null,
-    userPassword: null
-  }, action) => {
+const user = (state="", action) => {
   switch(action.type){
-    case "SIGN_UP_USER":
-      //firebase signup
-      return null
-    case "SIGN_IN_USER":
-      //firebase login
-      return null
+    case "SET_USER":
+      state = action.user
+      return state
     default:
       return state
   }
