@@ -30,11 +30,13 @@ export default function Account(){
                 "Content-Type" : "application/json"
             },
             body: JSON.stringify({ user: {"username": username, "password": password}})
-            .then(results => {
+        })
+        .then(response => response.json())
+        .then(results => {
                 dispatch({type: "SET_USER", user: results.user[1].username })
+                console.log(results)
                 localStorage.setItem("token", results.token)
             })
-        })
     }
 
     function handleAccountCreation(event){
@@ -46,6 +48,11 @@ export default function Account(){
             },
             body: JSON.stringify({user: {"username": username, "password": password}})
         })
+        .then(response => response.json())
+        .then(results => {
+            console.log(results)
+        })
+        console.log("account creation ran")
     }
 
     return(
