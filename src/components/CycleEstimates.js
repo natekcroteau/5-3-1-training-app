@@ -9,6 +9,7 @@ export default function CycleEstimates(props){
 
     const [maxWeight, setMaxWeight] = useState(0)
     const [lift, setLift] = useState("ie: Deadlift")
+    const [startDate, setStartDate] = useState("")
 
     const handleMaxChange = (event) => {
         setMaxWeight(event.target.value)
@@ -18,9 +19,30 @@ export default function CycleEstimates(props){
         setLift(event.target.value)
     }
 
+    const handleStartDateChange = (event) => {
+        setStartDate(event.target.value)
+    }
+
     const handleCycleSubmission = (event) => {
         event.preventDefault()
-
+        fetch('http://localhost:3001/log', { 
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    lift: lift, 
+                    startDate: startDate, 
+                    targets: {
+                        "week one": weekOne(maxWeight),
+                        "week two": weekTwo(maxWeight),
+                        "week three": weekThree(maxWeight),
+                        "week four": weekFour(maxWeight)
+                    }
+                })
+            })
+            .then(response => response.json())
+            .then(results => console.log(results))
     }
 
     function weekOne(max){
@@ -97,6 +119,8 @@ export default function CycleEstimates(props){
             <form onSubmit={handleCycleSubmission} >
                 <label>Which Lift? </label>
                 <input type="text" value={lift} onChange={handleLiftChange} />
+                <label>Start Date </label>
+                <input type="date" value={startDate} onChange={handleStartDateChange} />
                 <input type="submit" value="Save To Log"/>
             </form>
         </div>
