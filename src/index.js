@@ -6,11 +6,14 @@ import App from './App';
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
 
-const user = (state="", action) => {
+const user = (state={}, action) => {
   switch(action.type){
     case "SET_USER":
-      state = action.user
-      return state
+      return {
+        ...state,
+        user: action.user,
+        loggedIn: true
+      }
     default:
       return state
   }

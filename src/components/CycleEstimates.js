@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import '../App.css'
 
 
@@ -7,9 +8,13 @@ export default function CycleEstimates(props){
 
     const { roundForPlates } = props
 
+    let loggedInUser = useSelector(state => state.user.user)
+
+
     const [maxWeight, setMaxWeight] = useState(0)
     const [lift, setLift] = useState("ie: Deadlift")
     const [startDate, setStartDate] = useState("")
+
 
     const handleMaxChange = (event) => {
         setMaxWeight(event.target.value)
@@ -23,6 +28,7 @@ export default function CycleEstimates(props){
         setStartDate(event.target.value)
     }
 
+
     const handleCycleSubmission = (event) => {
         event.preventDefault()
         fetch('http://localhost:3001/log', { 
@@ -31,7 +37,9 @@ export default function CycleEstimates(props){
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
+                    username: loggedInUser,
                     lift: lift, 
+                    weight: maxWeight,
                     startDate: startDate, 
                     targets: {
                         "week one": weekOne(maxWeight),

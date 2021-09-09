@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import '../App.css'
 import { GiWeightLiftingUp } from 'react-icons/gi'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 
 
@@ -9,6 +9,12 @@ export default function Account(){
 
     const dispatch = useDispatch()
 
+    function setGlobalUsername(username){
+        dispatch({
+            type: "SET_USER", 
+            user: username
+        })
+    }
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -33,8 +39,7 @@ export default function Account(){
         })
         .then(response => response.json())
         .then(results => {
-                dispatch({type: "SET_USER", user: results.user[1].username })
-                console.log(results)
+                setGlobalUsername(results.user[1].username)
                 localStorage.setItem("token", results.token)
             })
     }
@@ -52,7 +57,6 @@ export default function Account(){
         .then(results => {
             console.log(results)
         })
-        console.log("account creation ran")
     }
 
     return(
