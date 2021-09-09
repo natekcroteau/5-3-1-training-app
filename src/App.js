@@ -1,6 +1,7 @@
 import './App.css'
 import Account from './components/Account'
 import CycleEstimates from './components/CycleEstimates'
+import LogViewer from './components/LogViewer'
 import MaxEstimate from './components/MaxEstimate'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <MaxEstimate roundForPlates={roundForPlates} />
           <CycleEstimates roundForPlates={roundForPlates} />
         </div>
+        <LogViewer />
       </div>
   );
 }

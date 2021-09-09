@@ -42,10 +42,10 @@ export default function CycleEstimates(props){
                     weight: maxWeight,
                     startDate: startDate, 
                     targets: {
-                        "week one": weekOne(maxWeight),
-                        "week two": weekTwo(maxWeight),
-                        "week three": weekThree(maxWeight),
-                        "week four": weekFour(maxWeight)
+                        weekOne: weekOne(maxWeight),
+                        weekTwo: weekTwo(maxWeight),
+                        weekThree: weekThree(maxWeight),
+                        weekFour: weekFour(maxWeight)
                     }
                 })
             })
