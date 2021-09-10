@@ -78,6 +78,16 @@
 }
 
 .log-viewer{
-    width: 400px;
-    height: 400px;
+    width: 800px;
+    height: 800px;
+    background-color: mintcream;
+    border:rgb(183, 250, 216) 2px solid;
+    border-radius: 8px; 
+}
+
+.log-card{
+    width: 700px;
+    height: 150px;
+    border:rgb(183, 250, 216) 2px solid;
+    border-radius: 8px; 
 }

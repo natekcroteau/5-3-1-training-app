@@ -1,5 +1,6 @@
 import '../App.css'
 import { useSelector } from 'react-redux'
+import LogCard from './LogCard'
 
 
 export default function LogViewer(props){
@@ -21,10 +22,34 @@ export default function LogViewer(props){
         })
     }
 
+    function displayLog(loggedInUser){
+        let log = retrieveLog(loggedInUser)
+        console.log(log)
+        if(log){
+            log.forEach(cycle => {
+                <LogCard 
+                    lift={cycle.lift} 
+                    date={cycle.startDate}  
+                    oneSetOne={cycle.weekOneSet1}
+                    oneSetTwo={cycle.weekOneSet2}
+                    oneSetThree={cycle.weekOneSet3}
+                    twoSetOne={cycle.weekTwoSet1}
+                    twoSetTwo={cycle.weekTwoSet2}
+                    twoSetThree={cycle.weekTwoSet3}
+                    threeSetOne={cycle.weekThreeSet1}
+                    threeSetTwo={cycle.weekThreeSet2}
+                    threeSetThree={cycle.weekThreeSet3}
+                    fourSetOne={cycle.weekFourSet1}
+                    fourSetTwo={cycle.weekFourSet2}
+                    fourSetThree={cycle.weekFourSet3}    
+                />
+            })
+        }
+    }
+
     return(
         <div className="log-viewer">
-            {/* <input type="submit" onClick={retrieveLog(loggedInUser)} value="retrieve log" /> */}
-            {retrieveLog(loggedInUser)}
+            {displayLog(loggedInUser)}
         </div>
     )
 }
