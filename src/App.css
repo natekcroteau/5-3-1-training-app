@@ -78,8 +78,12 @@
 }
 
 .log-viewer{
+    display: flex;
+    flex-direction: column;
+    flex-direction: center;
+    align-items: center;
     width: 800px;
-    height: 800px;
+    height: fit-content;
     background-color: mintcream;
     border:rgb(183, 250, 216) 2px solid;
     border-radius: 8px; 
@@ -87,7 +91,10 @@
 
 .log-card{
     width: 700px;
-    height: 150px;
+    margin: 8px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     border:rgb(183, 250, 216) 2px solid;
     border-radius: 8px; 
 }

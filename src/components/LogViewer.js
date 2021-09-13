@@ -1,13 +1,18 @@
 import '../App.css'
+import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import LogCard from './LogCard'
 
 
 export default function LogViewer(props){
 
-    let loggedInUser = useSelector(state => state.user.user)
+    const [retrievedLog, setRetrievedLog] = useState("")
 
-    function retrieveLog(loggedInUser){
+    let loggedInUser = useSelector(state => state.user)
+
+    useEffect(retrieveLog, [loggedInUser])
+
+    function retrieveLog(){
         fetch('http://localhost:3001/userlog', {
             method: 'POST',
             headers: {
@@ -17,17 +22,14 @@ export default function LogViewer(props){
         })
         .then(response => response.json())
         .then(results => {
-            console.log(results)
-            return results
+            return setRetrievedLog(results)
         })
     }
 
-    function displayLog(loggedInUser){
-        let log = retrieveLog(loggedInUser)
-        console.log(log)
-        if(log){
-            log.forEach(cycle => {
-                <LogCard 
+    function displayLog(){ 
+        if(retrievedLog){
+            return retrievedLog.map(cycle => {
+                return <LogCard 
                     lift={cycle.lift} 
                     date={cycle.startDate}  
                     oneSetOne={cycle.weekOneSet1}
@@ -44,12 +46,15 @@ export default function LogViewer(props){
                     fourSetThree={cycle.weekFourSet3}    
                 />
             })
+        }else{
+            return null
         }
     }
 
     return(
         <div className="log-viewer">
-            {displayLog(loggedInUser)}
+            <h2>Log</h2>
+            {displayLog()}
         </div>
     )
 }
