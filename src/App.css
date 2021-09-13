@@ -84,17 +84,19 @@
     align-items: center;
     width: 800px;
     height: fit-content;
+    padding: 8px;
     background-color: mintcream;
     border:rgb(183, 250, 216) 2px solid;
     border-radius: 8px; 
 }
 
 .log-card{
-    width: 700px;
+    width: 768px;
     margin: 8px;
     display:flex;
     flex-direction: row;
     justify-content: space-evenly;
+    background-color: rgb(211, 249, 230);
     border:rgb(183, 250, 216) 2px solid;
     border-radius: 8px; 
 }
