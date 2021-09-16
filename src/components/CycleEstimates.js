@@ -11,12 +11,13 @@ export default function CycleEstimates(props){
 
 
     let accountLoggedStatus = useSelector(state => state.loggedIn)
-    let loggedInUser = useSelector(state => state.user.user)
+    let loggedInUser = useSelector(state => state.user)
 
 
     const [maxWeight, setMaxWeight] = useState(0)
     const [lift, setLift] = useState("ie: Deadlift")
     const [startDate, setStartDate] = useState("")
+    const [message, setMessage] = useState('')
 
 
     const handleMaxChange = (event) => {
@@ -29,6 +30,10 @@ export default function CycleEstimates(props){
 
     const handleStartDateChange = (event) => {
         setStartDate(event.target.value)
+    }
+
+    function handleMessage(message){
+        return <h5>{message}</h5>
     }
 
 
@@ -53,7 +58,7 @@ export default function CycleEstimates(props){
                 })
             })
             .then(response => response.json())
-            .then(results => console.log(results))
+            .then(results => setMessage(results))
     }
 
 
@@ -106,11 +111,13 @@ export default function CycleEstimates(props){
                 <label>Start Date </label>
                 <input type="date" value={startDate} onChange={handleStartDateChange} />
                 <input type="submit" value="Save To Log"/>
+                {handleMessage(message)}
             </form>
         }else{
             return null
         }
     }
+
 
     return (
         <div className="cycle-calculations">
