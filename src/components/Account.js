@@ -12,6 +12,7 @@ export default function Account(){
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [message, setMessage] = useState('')
 
 
     let accountLoggedStatus = useSelector(state => state.loggedIn)
@@ -33,6 +34,7 @@ export default function Account(){
                     <input type="password" onChange={handlePasswordChange} value={password}/>
                     <button onClick={handleLogin} >Login</button>
                     <button onClick={handleAccountCreation} >Create Account</button>
+                    {handleMessage(message)}
                 </form>
             </>
         }
@@ -74,12 +76,21 @@ export default function Account(){
         })
         .then(response => response.json())
         .then(results => {
+            if(results.error){
+                setMessage(results.error)
+                setGlobalLoggedOutStatus()
+            }else{
+                setMessage('')
                 setGlobalUsername(results.user[1].username)
                 setGlobalLoggedInStatus()
                 localStorage.setItem("token", results.token)
-            })
+            }
+        })
     }
 
+    function handleMessage(message){
+        return <h5>{message}</h5>
+    }
 
     function handleLogout(){
         localStorage.removeItem("token")
@@ -98,20 +109,15 @@ export default function Account(){
         })
         .then(response => response.json())
         .then(results => {
-            console.log(results)
-            // accountCreationMessage(results)
+            setMessage(results)
         })
     }
 
-    // function accountCreationMessage(results){
-    //     return {results}
-    // }
 
     return(
         <>
             <GiWeightLiftingUp className="account-icon" />
             {loginForm(loggedInUser)}
-            {/* {accountCreationMessage()} */}
         </>
     )
 }
