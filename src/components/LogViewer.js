@@ -6,11 +6,9 @@ import LogCard from './LogCard'
 
 export default function LogViewer(props){
 
-    const [retrievedLog, setRetrievedLog] = useState("")
+    const [retrievedLog, setRetrievedLog] = useState(null)
 
     let loggedInUser = useSelector(state => state.user)
-
-    useEffect(fetchLog, [loggedInUser])
 
     function fetchLog(){
         fetch('http://localhost:3001/userlog', {
@@ -26,10 +24,11 @@ export default function LogViewer(props){
         })
     }
 
-    function displayLog(){ 
+    function log(){ 
         if(retrievedLog){
             return retrievedLog.map(cycle => {
                 return <LogCard 
+                    key={cycle.id}
                     lift={cycle.lift} 
                     date={cycle.startDate}  
                     oneSetOne={cycle.weekOneSet1}
@@ -51,10 +50,15 @@ export default function LogViewer(props){
         }
     }
 
+    
+    useEffect(fetchLog, [loggedInUser])
+
+
+
     return(
         <div className="log-viewer">
             <h2>Log</h2>
-            {displayLog()}
+            {log()}
         </div>
     )
 }

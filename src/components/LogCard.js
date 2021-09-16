@@ -2,6 +2,7 @@ import '../App.css'
 
 export default function LogCard(props) {
 
+    
     const { 
         lift, 
         date, 
@@ -18,6 +19,7 @@ export default function LogCard(props) {
         fourSetTwo,
         fourSetThree
         } = props 
+
 
     return(
         <div className="log-card">
@@ -49,7 +51,6 @@ export default function LogCard(props) {
                     <h6>Set 2: {fourSetTwo} lbs x 5</h6>
                     <h6>Set 3: {fourSetThree} lbs x 5</h6>
             </div>
-
         </div>
     )
 }

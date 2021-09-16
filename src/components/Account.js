@@ -1,6 +1,6 @@
-import { useState } from 'react'
 import '../App.css'
 import { GiWeightLiftingUp } from 'react-icons/gi'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 
@@ -9,8 +9,13 @@ export default function Account(){
 
     const dispatch = useDispatch()
 
+
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+
     let accountLoggedStatus = useSelector(state => state.loggedIn)
-    console.log(accountLoggedStatus)
+
 
     function setGlobalUsername(username){
         dispatch({
@@ -27,9 +32,6 @@ export default function Account(){
         dispatch({type: "LOG_OUT"})
     }
 
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-
 
     function handleUsernameChange(event){
         setUsername(event.target.value)
@@ -38,6 +40,7 @@ export default function Account(){
     function handlePasswordChange(event){
         setPassword(event.target.value)
     }
+
 
     function handleLogin(event){
         event.preventDefault()
@@ -56,6 +59,7 @@ export default function Account(){
             })
     }
 
+
     function handleAccountCreation(event){
         event.preventDefault()
         fetch('http://localhost:3001/users', { 
@@ -71,6 +75,7 @@ export default function Account(){
         })
     }
 
+    
     return(
         <>
             <GiWeightLiftingUp className="account-icon" />
