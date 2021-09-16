@@ -15,7 +15,28 @@ export default function Account(){
 
 
     let accountLoggedStatus = useSelector(state => state.loggedIn)
+    let loggedInUser = useSelector(state => state.user)
 
+
+    function loginForm(loggedInUser){
+        if(accountLoggedStatus === true){
+            return <div className="account">
+                <h3>Welcome {loggedInUser}</h3>
+                <button onClick={handleLogout} >Logout</button>
+            </div>
+        }else{
+            return <>
+                <form className="account">
+                    <label>Username</label>
+                    <input type="text" onChange={handleUsernameChange} value={username}/>
+                    <label>Password</label>
+                    <input type="password" onChange={handlePasswordChange} value={password}/>
+                    <button onClick={handleLogin} >Login</button>
+                    <button onClick={handleAccountCreation} >Create Account</button>
+                </form>
+            </>
+        }
+    }
 
     function setGlobalUsername(username){
         dispatch({
@@ -60,6 +81,12 @@ export default function Account(){
     }
 
 
+    function handleLogout(){
+        localStorage.removeItem("token")
+        setGlobalLoggedOutStatus()
+    }
+
+
     function handleAccountCreation(event){
         event.preventDefault()
         fetch('http://localhost:3001/users', { 
@@ -72,21 +99,19 @@ export default function Account(){
         .then(response => response.json())
         .then(results => {
             console.log(results)
+            // accountCreationMessage(results)
         })
     }
 
-    
+    // function accountCreationMessage(results){
+    //     return {results}
+    // }
+
     return(
         <>
             <GiWeightLiftingUp className="account-icon" />
-            <form className="account">
-                <label>Username</label>
-                <input type="text" onChange={handleUsernameChange} value={username}/>
-                <label>Password</label>
-                <input type="password" onChange={handlePasswordChange} value={password}/>
-                <button onClick={handleLogin} >Login</button>
-                <button onClick={handleAccountCreation} >Create Account</button>
-            </form>
+            {loginForm(loggedInUser)}
+            {/* {accountCreationMessage()} */}
         </>
     )
 }

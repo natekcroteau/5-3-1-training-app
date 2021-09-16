@@ -6,8 +6,11 @@ import '../App.css'
 
 export default function CycleEstimates(props){
 
+
     const { roundForPlates } = props
 
+
+    let accountLoggedStatus = useSelector(state => state.loggedIn)
     let loggedInUser = useSelector(state => state.user.user)
 
 
@@ -53,6 +56,7 @@ export default function CycleEstimates(props){
             .then(results => console.log(results))
     }
 
+
     function weekOne(max){
         let weekOneTargets = []
 
@@ -93,6 +97,21 @@ export default function CycleEstimates(props){
         return weekFourTargets
     }
 
+
+    function saveIfLoggedIn(){
+        if(accountLoggedStatus === true){
+            return <form onSubmit={handleCycleSubmission} >
+                <label>Which Lift? </label>
+                <input type="text" value={lift} onChange={handleLiftChange} />
+                <label>Start Date </label>
+                <input type="date" value={startDate} onChange={handleStartDateChange} />
+                <input type="submit" value="Save To Log"/>
+            </form>
+        }else{
+            return null
+        }
+    }
+
     return (
         <div className="cycle-calculations">
             <h3>Calculate 5/3/1 Training Loads</h3>
@@ -124,13 +143,7 @@ export default function CycleEstimates(props){
                     <div>Set 3: {weekFour(maxWeight)[2]} lbs x 5 reps</div>
                 </div>
             </div>
-            <form onSubmit={handleCycleSubmission} >
-                <label>Which Lift? </label>
-                <input type="text" value={lift} onChange={handleLiftChange} />
-                <label>Start Date </label>
-                <input type="date" value={startDate} onChange={handleStartDateChange} />
-                <input type="submit" value="Save To Log"/>
-            </form>
+            {saveIfLoggedIn()}
         </div>
     )
 }

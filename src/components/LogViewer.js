@@ -6,9 +6,12 @@ import LogCard from './LogCard'
 
 export default function LogViewer(props){
 
+
     const [retrievedLog, setRetrievedLog] = useState(null)
 
+
     let loggedInUser = useSelector(state => state.user)
+
 
     function fetchLog(){
         fetch('http://localhost:3001/userlog', {
@@ -23,6 +26,7 @@ export default function LogViewer(props){
             return setRetrievedLog(results)
         })
     }
+
 
     function log(){ 
         if(retrievedLog){
@@ -52,7 +56,6 @@ export default function LogViewer(props){
 
     
     useEffect(fetchLog, [loggedInUser])
-
 
 
     return(
