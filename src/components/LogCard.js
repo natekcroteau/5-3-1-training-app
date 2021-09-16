@@ -22,7 +22,7 @@ export default function LogCard(props) {
     return(
         <div className="log-card">
             <div>
-                <h3 className="log-lift">{lift}</h3>
+                <h3 className="log-lift">{lift.toUpperCase()}</h3>
                 <h4 className="log-date">{date}</h4>
             </div>
             <div className="log-week">

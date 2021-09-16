@@ -15,7 +15,18 @@ const user = (state="", action) => {
   }
 }
 
-const rootReducer = combineReducers({user})
+const loggedIn = (state=false, action) => {
+  switch(action.type){
+    case "LOG_IN":
+      return state = true
+    case "LOG_OUT":
+      return state = false
+    default:
+      return state
+  }
+}
+
+const rootReducer = combineReducers({user, loggedIn})
 const store = createStore(rootReducer)
 
 

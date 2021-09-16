@@ -10,9 +10,9 @@ export default function LogViewer(props){
 
     let loggedInUser = useSelector(state => state.user)
 
-    useEffect(retrieveLog, [loggedInUser])
+    useEffect(fetchLog, [loggedInUser])
 
-    function retrieveLog(){
+    function fetchLog(){
         fetch('http://localhost:3001/userlog', {
             method: 'POST',
             headers: {

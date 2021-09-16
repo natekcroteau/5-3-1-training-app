@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import '../App.css'
 import { GiWeightLiftingUp } from 'react-icons/gi'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 
@@ -9,11 +9,22 @@ export default function Account(){
 
     const dispatch = useDispatch()
 
+    let accountLoggedStatus = useSelector(state => state.loggedIn)
+    console.log(accountLoggedStatus)
+
     function setGlobalUsername(username){
         dispatch({
             type: "SET_USER", 
             user: username
         })
+    }
+
+    function setGlobalLoggedInStatus(){
+        dispatch({type: "LOG_IN"})
+    }
+
+    function setGlobalLoggedOutStatus(){
+        dispatch({type: "LOG_OUT"})
     }
 
     const [username, setUsername] = useState('')
@@ -40,6 +51,7 @@ export default function Account(){
         .then(response => response.json())
         .then(results => {
                 setGlobalUsername(results.user[1].username)
+                setGlobalLoggedInStatus()
                 localStorage.setItem("token", results.token)
             })
     }
