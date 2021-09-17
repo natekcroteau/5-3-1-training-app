@@ -32,6 +32,7 @@
 .account-icon{
     height: 152px;
     width: fit-content;
+    color: #c5ddcf80;
 }
 
 .cycle-calculations{
@@ -39,13 +40,12 @@
     height: 500px;
     margin: 16px;
     padding: 8px;
-    border: 2 px mintcream solid;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: mintcream;
-    border:rgb(183, 250, 216) 2px solid;
+    background-color: #c5ddcf80;
+    border:#292E49 2px solid;
     border-radius: 8px;
 
 }
@@ -58,12 +58,11 @@
     padding-bottom: 16px;    
 }
 .cycle-week{
-    background-color: mintcream;
     width: 200px;
     margin: 8px;
     padding: 8px;
-    background-color: rgb(211, 249, 230);
-    border:rgb(183, 250, 216) 2px solid;
+    background-color: #536976;
+    border:#292E49 2px solid;
     border-radius: 8px;    
 }
 
@@ -73,8 +72,8 @@
     height: fit-content;
     margin: 16px;
     padding: 8px;
-    background-color: mintcream;
-    border:rgb(183, 250, 216) 2px solid;
+    background-color: #c5ddcf80;
+    border:#292E49 2px solid;
     border-radius: 8px;    
 }
 
@@ -86,8 +85,8 @@
     width: 800px;
     height: fit-content;
     padding: 8px;
-    background-color: mintcream;
-    border:rgb(183, 250, 216) 2px solid;
+    background-color: #c5ddcf80;
+    border:#292E49 2px solid;
     border-radius: 8px; 
 }
 
@@ -97,7 +96,30 @@
     display:flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: rgb(211, 249, 230);
-    border:rgb(183, 250, 216) 2px solid;
+    background-color: #536976;
+    border:#292E49 2px solid;
     border-radius: 8px; 
+}
+
+.log-week{
+    width: 100px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #c5ddcf80;
+    border:#292E49 2px solid;
+    border-radius: 8px; 
+    margin: 8px;
+    padding: 8px;
+}
+
+.log-lift-date{
+    width: 260px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
