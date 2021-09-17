@@ -1,6 +1,7 @@
 import '../App.css'
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import moment from 'moment'
 import LogCard from './LogCard'
 
 
@@ -28,13 +29,18 @@ export default function LogViewer(props){
     }
 
 
+    function dateFormatting(startDate){
+        return moment(startDate).format("MMMM Do YYYY")
+    }
+
+
     function log(){ 
         if(retrievedLog){
             return retrievedLog.map(cycle => {
                 return <LogCard 
                     key={cycle.id}
                     lift={cycle.lift} 
-                    date={cycle.startDate}  
+                    date={dateFormatting(cycle.startDate)}  
                     oneSetOne={cycle.weekOneSet1}
                     oneSetTwo={cycle.weekOneSet2}
                     oneSetThree={cycle.weekOneSet3}
