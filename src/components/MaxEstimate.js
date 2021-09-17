@@ -34,7 +34,7 @@ export default function MaxEstimate(props) {
             <form onSubmit={handleEstimatedSubmit}>
                 <input type="text" value={weightInput} onChange={handleWeightInputChange} />
                 <input type="text" value={repetitionsInput} onChange={handleRepetitionsInputChange} />
-                <input type="submit" />
+                <input className="button-dark" type="submit" />
             </form>
             <h4>Your Estimated 1RM =  {estimatedMax} lbs</h4>
         </div>

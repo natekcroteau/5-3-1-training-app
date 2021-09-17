@@ -30,7 +30,7 @@ export default function LogViewer(props){
 
 
     function dateFormatting(startDate){
-        return moment(startDate).format("MMMM Do YYYY")
+        return moment(startDate).format("MMMM Do, YYYY")
     }
 
 

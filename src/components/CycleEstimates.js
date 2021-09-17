@@ -105,12 +105,12 @@ export default function CycleEstimates(props){
 
     function saveIfLoggedIn(){
         if(accountLoggedStatus === true){
-            return <form onSubmit={handleCycleSubmission} >
+            return <form className="log-submission-form" onSubmit={handleCycleSubmission} >
                 <label>Which Lift? </label>
                 <input type="text" value={lift} onChange={handleLiftChange} />
                 <label>Start Date </label>
                 <input type="date" value={startDate} onChange={handleStartDateChange} />
-                <input type="submit" value="Save To Log"/>
+                <input className="button-dark" type="submit" value="Save To Log"/>
                 {handleMessage(message)}
             </form>
         }else{

@@ -22,8 +22,8 @@ export default function Account(){
     function loginForm(loggedInUser){
         if(accountLoggedStatus === true){
             return <div className="account">
-                <h3>Welcome {loggedInUser}</h3>
-                <button onClick={handleLogout} >Logout</button>
+                <h3>Welcome {loggedInUser.toUpperCase()}</h3>
+                <button className="button-light" onClick={handleLogout} >Logout</button>
             </div>
         }else{
             return <>
@@ -32,8 +32,8 @@ export default function Account(){
                     <input type="text" onChange={handleUsernameChange} value={username}/>
                     <label>Password</label>
                     <input type="password" onChange={handlePasswordChange} value={password}/>
-                    <button onClick={handleLogin} >Login</button>
-                    <button onClick={handleAccountCreation} >Create Account</button>
+                    <button className="button-light" onClick={handleLogin} >Login</button>
+                    <button className="button-light" onClick={handleAccountCreation} >Create Account</button>
                     {handleMessage(message)}
                 </form>
             </>

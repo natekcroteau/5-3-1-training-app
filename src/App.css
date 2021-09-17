@@ -5,19 +5,37 @@
     align-items: center;
 }
 .app-header{
-    width: 1000px;
-    height: 160px;
+    width: fit-content;
+    height: fit-content;
     display: flex;
-    justify-content: space-between;
-    padding-bottom: 24px;
-
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 16px;
+    padding-top: 36px;
 }
 .app-main{
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     justify-content: center;
     text-align: center;
 
+}
+
+
+.button-light{
+    padding: 4px;
+    color: black;
+    background-color: #c5ddcf80;
+    border:#292E49 2px solid;
+    border-radius: 16px;
+}
+.button-dark{
+    padding: 4px;
+    color: white;
+    background-color: #536976;
+    border:#292E49 2px solid;
+    border-radius: 16px;
 }
 
 
@@ -27,17 +45,23 @@
     justify-content:space-evenly;
     align-items: center;
     height: 200px;
-    width: 250px;
+    width: 248px;
+    margin-top: 24px;
+    padding-left: 160px;
+    padding-right: 160px;
 }
 .account-icon{
     height: 152px;
     width: fit-content;
+    padding-left: 160px;
+    padding-right: 160px;
+    margin-top: -16px;
     color: #c5ddcf80;
 }
 
 .cycle-calculations{
-    width: 600px;
-    height: 500px;
+    width: fit-content;
+    height: fit-content;
     margin: 16px;
     padding: 8px;
     border-radius: 8px;
@@ -47,7 +71,7 @@
     background-color: #c5ddcf80;
     border:#292E49 2px solid;
     border-radius: 8px;
-
+    color: black;
 }
 .cycle-month{
     display: flex;
@@ -55,7 +79,6 @@
     justify-content: center;
     align-items: center;
     margin: 8px;
-    padding-bottom: 16px;    
 }
 .cycle-week{
     width: 200px;
@@ -64,62 +87,82 @@
     background-color: #536976;
     border:#292E49 2px solid;
     border-radius: 8px;    
+    color: white; 
+}
+.log-submission-form{
+    height: 168px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: space-between;
+    margin-bottom: -24px;
 }
 
 
 .max-estimator{
-    width: 500px;
+    width: 400px;
     height: fit-content;
     margin: 16px;
     padding: 8px;
     background-color: #c5ddcf80;
     border:#292E49 2px solid;
-    border-radius: 8px;    
+    border-radius: 8px;   
+    color: black; 
 }
 
 .log-viewer{
+    width: fit-content;
+    height: fit-content;
+    margin: 16px;
+    padding: 8px;
     display: flex;
     flex-direction: column;
-    flex-direction: center;
     align-items: center;
-    width: 800px;
-    height: fit-content;
-    padding: 8px;
+    color: black;
     background-color: #c5ddcf80;
     border:#292E49 2px solid;
     border-radius: 8px; 
 }
 
 .log-card{
-    width: 768px;
+    width: fit-content;
+    height: fit-content;
     margin: 8px;
     display:flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-flow: row wrap;
+    justify-content:center;
+    align-items: center;
+    color: black; 
     background-color: #536976;
     border:#292E49 2px solid;
     border-radius: 8px; 
 }
 
 .log-week{
-    width: 100px;
-    height: fit-content;
+    width: 136px;
+    height: 136px;
+    margin: 4px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    text-align: center;
+    color: black;
     background-color: #c5ddcf80;
     border:#292E49 2px solid;
     border-radius: 8px; 
-    margin: 8px;
-    padding: 8px;
 }
 
 .log-lift-date{
-    width: 260px;
-    height: fit-content;
+    width: 136px;
+    height: 136px;
+    margin: 4px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    text-align: center;
+    justify-content: space-evenly;
+    color: white; 
 }
