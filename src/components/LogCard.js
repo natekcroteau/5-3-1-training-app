@@ -4,6 +4,7 @@ export default function LogCard(props) {
 
     
     const { 
+        logID,
         lift, 
         date, 
         oneSetOne,
@@ -17,16 +18,29 @@ export default function LogCard(props) {
         threeSetThree,
         fourSetOne,
         fourSetTwo,
-        fourSetThree
+        fourSetThree,
+        fetchLog
         } = props 
 
+
+        function deleteLog(){
+            fetch('localhost:3001/log', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ logID: logID})
+            })
+            fetchLog()
+
+        }
 
     return(
         <div className="log-card">
             <div className="log-lift-date">
                 <h3 className="log-lift">{lift.toUpperCase()}</h3>
                 <div className="log-date">{date}</div>
-                <button className="button-light">X</button>
+                <button className="button-light" onClick={deleteLog} >X</button>
             </div>
             <div className="log-week">
                 <h4>Week 1:</h4>

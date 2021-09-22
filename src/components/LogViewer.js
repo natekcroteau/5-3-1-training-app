@@ -39,6 +39,7 @@ export default function LogViewer(props){
             return retrievedLog.map(cycle => {
                 return <LogCard 
                     key={cycle.id}
+                    logID={cycle.id}
                     lift={cycle.lift} 
                     date={dateFormatting(cycle.startDate)}  
                     oneSetOne={cycle.weekOneSet1}
@@ -53,6 +54,7 @@ export default function LogViewer(props){
                     fourSetOne={cycle.weekFourSet1}
                     fourSetTwo={cycle.weekFourSet2}
                     fourSetThree={cycle.weekFourSet3}    
+                    fetchLog={fetchLog()}
                 />
             })
         }else{
