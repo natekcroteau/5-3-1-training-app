@@ -1,5 +1,5 @@
 import '../App.css'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import moment from 'moment'
 import LogCard from './LogCard'
 
@@ -9,9 +9,16 @@ export default function LogViewer(props){
 
     let { fetchLog, retrievedLog, loggedInUser } = props
 
+    const [sortedLog, setSortedLog] = useState(null)
+
+    // function sortLog(){
+    //     retrievedLog.map
+
+    // }
+
 
     function dateFormatting(startDate){
-        return moment(startDate).format("MMMM Do, YYYY")
+        return moment(startDate).format("MMM Do, YYYY")
     }
 
 
@@ -22,6 +29,7 @@ export default function LogViewer(props){
                     key={cycle.id}
                     logID={cycle.id}
                     lift={cycle.lift} 
+                    maxWeight={cycle.maxWeight}
                     date={dateFormatting(cycle.startDate)}  
                     oneSetOne={cycle.weekOneSet1}
                     oneSetTwo={cycle.weekOneSet2}

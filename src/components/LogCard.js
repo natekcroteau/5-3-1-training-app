@@ -7,6 +7,7 @@ export default function LogCard(props) {
     const { 
         logID,
         lift, 
+        maxWeight,
         date, 
         oneSetOne,
         oneSetTwo,
@@ -35,13 +36,14 @@ export default function LogCard(props) {
             })
             .then(response => response.json())
             .then(result => console.log(result))
-            fetchLog()
+            setTimeout(fetchLog, 500)
         }
 
     return(
         <div className="log-card">
-            <div className="log-lift-date">
+            <div className="log-info">
                 <h3 className="log-lift">{lift.toUpperCase()}</h3>
+                <div>{maxWeight} lbs</div>
                 <div className="log-date">{date}</div>
                 <button className="button-light" onClick={deleteLog} >Delete</button>
             </div>

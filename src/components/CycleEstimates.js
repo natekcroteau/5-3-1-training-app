@@ -59,7 +59,7 @@ export default function CycleEstimates(props){
             })
             .then(response => response.json())
             .then(results => setMessage(results))
-            fetchLog()
+            setTimeout(fetchLog, 500)
     }
 
 
