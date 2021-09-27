@@ -15,6 +15,7 @@ export default function LogViewer(props){
 
 
     function fetchLog(){
+        console.log("fetch log ran")
         fetch('http://localhost:3001/userlog', {
             method: 'POST',
             headers: {
@@ -54,7 +55,7 @@ export default function LogViewer(props){
                     fourSetOne={cycle.weekFourSet1}
                     fourSetTwo={cycle.weekFourSet2}
                     fourSetThree={cycle.weekFourSet3}    
-                    fetchLog={fetchLog()}
+                    fetchLog={fetchLog}
                 />
             })
         }else{

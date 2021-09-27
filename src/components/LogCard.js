@@ -1,4 +1,5 @@
 import '../App.css'
+// import { useEffect } from 'react'
 
 export default function LogCard(props) {
 
@@ -19,20 +20,22 @@ export default function LogCard(props) {
         fourSetOne,
         fourSetTwo,
         fourSetThree,
-        fetchLog
+        // fetchLog
         } = props 
 
 
-        function deleteLog(){
-            fetch('localhost:3001/log', {
+        function deleteLog(event){
+            event.preventDefault()
+            fetch('http://localhost:3001/log', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ logID: logID})
             })
-            fetchLog()
-
+            .then(response => response.json())
+            .then(result => console.log(result))
+            // fetchLog()
         }
 
     return(
