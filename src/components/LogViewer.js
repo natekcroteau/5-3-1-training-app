@@ -9,10 +9,10 @@ export default function LogViewer(props){
 
     let { fetchLog, retrievedLog, loggedInUser } = props
 
-    const [sortedLog, setSortedLog] = useState(null)
+    // const [sortedLog, setSortedLog] = useState(null)
 
     // function sortLog(){
-    //     retrievedLog.map
+    //     return retrievedLog.date.sort((x, y) ⇒ x - y)
 
     // }
 
