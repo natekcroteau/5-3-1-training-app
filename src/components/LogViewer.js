@@ -1,6 +1,5 @@
 import '../App.css'
-import { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 import moment from 'moment'
 import LogCard from './LogCard'
 
@@ -8,26 +7,7 @@ import LogCard from './LogCard'
 export default function LogViewer(props){
 
 
-    const [retrievedLog, setRetrievedLog] = useState(null)
-
-
-    let loggedInUser = useSelector(state => state.user)
-
-
-    function fetchLog(){
-        console.log("fetch log ran")
-        fetch('http://localhost:3001/userlog', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ username: loggedInUser })
-        })
-        .then(response => response.json())
-        .then(results => {
-            return setRetrievedLog(results)
-        })
-    }
+    let { fetchLog, retrievedLog, loggedInUser } = props
 
 
     function dateFormatting(startDate){

@@ -7,7 +7,7 @@ import '../App.css'
 export default function CycleEstimates(props){
 
 
-    const { roundForPlates } = props
+    const { roundForPlates, fetchLog, retrievedLog } = props
 
 
     let accountLoggedStatus = useSelector(state => state.loggedIn)
@@ -59,6 +59,7 @@ export default function CycleEstimates(props){
             })
             .then(response => response.json())
             .then(results => setMessage(results))
+            fetchLog()
     }
 
 

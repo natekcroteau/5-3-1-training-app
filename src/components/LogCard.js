@@ -20,7 +20,7 @@ export default function LogCard(props) {
         fourSetOne,
         fourSetTwo,
         fourSetThree,
-        // fetchLog
+        fetchLog
         } = props 
 
 
@@ -35,7 +35,7 @@ export default function LogCard(props) {
             })
             .then(response => response.json())
             .then(result => console.log(result))
-            // fetchLog()
+            fetchLog()
         }
 
     return(
@@ -43,7 +43,7 @@ export default function LogCard(props) {
             <div className="log-lift-date">
                 <h3 className="log-lift">{lift.toUpperCase()}</h3>
                 <div className="log-date">{date}</div>
-                <button className="button-light" onClick={deleteLog} >X</button>
+                <button className="button-light" onClick={deleteLog} >Delete</button>
             </div>
             <div className="log-week">
                 <h4>Week 1:</h4>

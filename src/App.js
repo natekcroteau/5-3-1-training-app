@@ -1,4 +1,5 @@
 import './App.css'
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import Account from './components/Account'
 import CycleEstimates from './components/CycleEstimates'
@@ -10,11 +11,34 @@ function App() {
 
 
   let accountLoggedStatus = useSelector(state => state.loggedIn)
+  let loggedInUser = useSelector(state => state.user)
+
+
+  const [retrievedLog, setRetrievedLog] = useState(null)
+
+  function fetchLog(){
+    console.log("fetch log ran")
+    fetch('http://localhost:3001/userlog', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username: loggedInUser })
+    })
+    .then(response => response.json())
+    .then(results => {
+        return setRetrievedLog(results)
+    })
+  }
 
 
   function displayLogUponLogin(){
     if(accountLoggedStatus === true){
-      return <LogViewer />
+      return <LogViewer 
+        fetchLog={fetchLog}
+        retrievedLog={retrievedLog} 
+        loggedInUser={loggedInUser}
+      />
     }else{
       return <h2>Create an Account and Login to Save Your Data</h2>
     }
@@ -33,7 +57,11 @@ function App() {
         </div>
         <div className="app-main">
           <MaxEstimate roundForPlates={roundForPlates} />
-          <CycleEstimates roundForPlates={roundForPlates} />
+          <CycleEstimates 
+            roundForPlates={roundForPlates}
+            fetchLog={fetchLog}
+            retrievedLog={retrievedLog} 
+          />
         </div>
         {displayLogUponLogin()}
       </div>
