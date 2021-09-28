@@ -1,5 +1,5 @@
 import '../App.css'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import moment from 'moment'
 import LogCard from './LogCard'
 
@@ -9,16 +9,9 @@ export default function LogViewer(props){
 
     let { fetchLog, retrievedLog, loggedInUser } = props
 
-    // const [sortedLog, setSortedLog] = useState(null)
-
-    // function sortLog(){
-    //     return retrievedLog.date.sort((x, y) ⇒ x - y)
-
-    // }
-
 
     function dateFormatting(startDate){
-        return moment(startDate).format("MMM Do, YYYY")
+        return moment(startDate).format('MMM Do, YYYY')
     }
 
 
@@ -56,7 +49,7 @@ export default function LogViewer(props){
 
 
     return(
-        <div className="log-viewer">
+        <div className='log-viewer'>
             <h2>Log</h2>
             {log()}
         </div>

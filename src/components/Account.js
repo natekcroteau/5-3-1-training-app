@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 
-
 export default function Account(){
+
 
     const dispatch = useDispatch()
 
@@ -21,38 +21,41 @@ export default function Account(){
 
     function loginForm(loggedInUser){
         if(accountLoggedStatus === true){
-            return <div className="account">
+            return <div className='account'>
                 <h3>Welcome {loggedInUser.toUpperCase()}</h3>
-                <button className="button-light" onClick={handleLogout} >Logout</button>
+                <button className='button-light' onClick={handleLogout} >Logout</button>
             </div>
         }else{
             return <>
-                <form className="account">
+                <form className='account'>
                     <label>Username</label>
-                    <input type="text" onChange={handleUsernameChange} value={username}/>
+                    <input type='text' onChange={handleUsernameChange} value={username}/>
                     <label>Password</label>
-                    <input type="password" onChange={handlePasswordChange} value={password}/>
-                    <button className="button-light" onClick={handleLogin} >Login</button>
-                    <button className="button-light" onClick={handleAccountCreation} >Create Account</button>
+                    <input type='password' onChange={handlePasswordChange} value={password}/>
+                    <button className='button-light' onClick={handleLogin} >Login</button>
+                    <button className='button-light' onClick={handleAccountCreation} >Create Account</button>
                     {handleMessage(message)}
                 </form>
             </>
         }
     }
 
+
     function setGlobalUsername(username){
         dispatch({
-            type: "SET_USER", 
+            type: 'SET_USER', 
             user: username
         })
     }
 
+
     function setGlobalLoggedInStatus(){
-        dispatch({type: "LOG_IN"})
+        dispatch({type: 'LOG_IN'})
     }
 
+
     function setGlobalLoggedOutStatus(){
-        dispatch({type: "LOG_OUT"})
+        dispatch({type: 'LOG_OUT'})
     }
 
 
@@ -60,6 +63,7 @@ export default function Account(){
         setUsername(event.target.value)
     }
     
+
     function handlePasswordChange(event){
         setPassword(event.target.value)
     }
@@ -70,9 +74,9 @@ export default function Account(){
         fetch('http://localhost:3001/login', {
             method: 'POST',
             headers: {
-                "Content-Type" : "application/json"
+                'Content-Type' : 'application/json'
             },
-            body: JSON.stringify({ user: {"username": username, "password": password}})
+            body: JSON.stringify({ user: {'username': username, 'password': password}})
         })
         .then(response => response.json())
         .then(results => {
@@ -83,17 +87,19 @@ export default function Account(){
                 setMessage('')
                 setGlobalUsername(results.user[1].username)
                 setGlobalLoggedInStatus()
-                localStorage.setItem("token", results.token)
+                localStorage.setItem('token', results.token)
             }
         })
     }
+
 
     function handleMessage(message){
         return <h5>{message}</h5>
     }
 
+
     function handleLogout(){
-        localStorage.removeItem("token")
+        localStorage.removeItem('token')
         setGlobalLoggedOutStatus()
     }
 
@@ -103,9 +109,9 @@ export default function Account(){
         fetch('http://localhost:3001/users', { 
             method: 'POST',
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({user: {"username": username, "password": password}})
+            body: JSON.stringify({user: {'username': username, 'password': password}})
         })
         .then(response => response.json())
         .then(results => {
@@ -116,7 +122,7 @@ export default function Account(){
 
     return(
         <>
-            <GiWeightLiftingUp className="account-icon" />
+            <GiWeightLiftingUp className='account-icon' />
             {loginForm(loggedInUser)}
         </>
     )

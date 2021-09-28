@@ -16,12 +16,12 @@ function App() {
 
   const [retrievedLog, setRetrievedLog] = useState(null)
 
+
   function fetchLog(){
-    console.log("fetch log ran")
     fetch('http://localhost:3001/userlog', {
         method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ username: loggedInUser })
     })
@@ -51,11 +51,11 @@ function App() {
 
 
   return (
-      <div className="App">
-        <div className="app-header">
+      <div className='App'>
+        <div className='app-header'>
           <Account />
         </div>
-        <div className="app-main">
+        <div className='app-main'>
           <MaxEstimate roundForPlates={roundForPlates} />
           <CycleEstimates 
             roundForPlates={roundForPlates}
