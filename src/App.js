@@ -18,7 +18,7 @@ function App() {
 
 
   function fetchLog(){
-    fetch('http://localhost:3001/userlog', {
+    fetch('https://training-531.herokuapp.com/userlog', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

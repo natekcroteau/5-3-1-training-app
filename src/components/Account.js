@@ -71,7 +71,7 @@ export default function Account(){
 
     function handleLogin(event){
         event.preventDefault()
-        fetch('http://localhost:3001/login', {
+        fetch('https://training-531.herokuapp.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
@@ -106,7 +106,7 @@ export default function Account(){
 
     function handleAccountCreation(event){
         event.preventDefault()
-        fetch('http://localhost:3001/users', { 
+        fetch('https://training-531.herokuapp.com/users', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -27,7 +27,7 @@ export default function LogCard(props) {
 
     function deleteLog(event){
         event.preventDefault()
-        fetch('http://localhost:3001/log', {
+        fetch('https://training-531.herokuapp.com/log', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

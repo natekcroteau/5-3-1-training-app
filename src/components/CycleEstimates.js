@@ -39,7 +39,7 @@ export default function CycleEstimates(props){
 
     const handleCycleSubmission = (event) => {
         event.preventDefault()
-        fetch('http://localhost:3001/log', { 
+        fetch('https://training-531.herokuapp.com/log', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
