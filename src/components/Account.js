@@ -23,17 +23,27 @@ export default function Account(){
         if(accountLoggedStatus === true){
             return <div className='account'>
                 <h3>Welcome {loggedInUser.toUpperCase()}</h3>
-                <button className='button-light' onClick={handleLogout} >Logout</button>
+                <button className='button-light' id='logout' onClick={handleLogout} >Logout</button>
             </div>
         }else{
             return <>
                 <form className='account'>
-                    <label>Username</label>
-                    <input type='text' onChange={handleUsernameChange} value={username}/>
-                    <label>Password</label>
-                    <input type='password' onChange={handlePasswordChange} value={password}/>
-                    <button className='button-light' onClick={handleLogin} >Login</button>
-                    <button className='button-light' onClick={handleAccountCreation} >Create Account</button>
+                    <label htmlFor='username'>Username</label>
+                    <input className='input-field' 
+                        id='username' 
+                        type='text' 
+                        onChange={handleUsernameChange} 
+                        value={username}
+                    />
+                    <label htmlFor='password' >Password</label>
+                    <input className='input-field' 
+                        id='password' 
+                        type='password' 
+                        onChange={handlePasswordChange} 
+                        value={password}
+                    />
+                    <button className='button-light' id='login' onClick={handleLogin} >Login</button>
+                    <button className='button-light' id='create-account' onClick={handleAccountCreation} >Create Account</button>
                     {handleMessage(message)}
                 </form>
             </>

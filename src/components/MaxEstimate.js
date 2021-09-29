@@ -32,9 +32,19 @@ export default function MaxEstimate(props) {
         <div className='max-estimator'>
             <h3>Estimate Your 1RM Using The Brzycki Equation</h3>
             <form onSubmit={handleEstimatedSubmit}>
-                <input type='text' value={weightInput} onChange={handleWeightInputChange} />
-                <input type='text' value={repetitionsInput} onChange={handleRepetitionsInputChange} />
-                <input className='button-dark' type='submit' />
+                <input className='input-field' 
+                  id='weight'
+                  type='text' 
+                  value={weightInput} 
+                  onChange={handleWeightInputChange} 
+                />
+                <input className='input-field'
+                  id='repetitions' 
+                  type='text' 
+                  value={repetitionsInput} 
+                  onChange={handleRepetitionsInputChange} 
+                />
+                <input className='button-dark' id='submit' type='submit' />
             </form>
             <h4>Your Estimated 1RM =  {estimatedMax} lbs</h4>
         </div>

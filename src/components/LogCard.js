@@ -43,7 +43,7 @@ export default function LogCard(props) {
                 <h3 className='log-lift'>{lift.toUpperCase()}</h3>
                 <div>{maxWeight} lbs</div>
                 <div className='log-date'>{date}</div>
-                <button className='button-light' onClick={deleteLog} >Delete</button>
+                <button className='button-light' onClick={deleteLog}>Delete</button>
             </div>
             <div className='log-week'>
                 <h4>Week 1:</h4>

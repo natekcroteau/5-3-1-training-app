@@ -34,11 +34,7 @@ function App() {
 
   function displayLogUponLogin(){
     if(accountLoggedStatus === true){
-      return <LogViewer 
-        fetchLog={fetchLog}
-        retrievedLog={retrievedLog} 
-        loggedInUser={loggedInUser}
-      />
+      return <LogViewer fetchLog={fetchLog} retrievedLog={retrievedLog} loggedInUser={loggedInUser}/>
     }else{
       return <h2>Create an Account and Login to Save Your Data</h2>
     }
@@ -57,10 +53,7 @@ function App() {
         </div>
         <div className='app-main'>
           <MaxEstimate roundForPlates={roundForPlates} />
-          <CycleEstimates 
-            roundForPlates={roundForPlates}
-            fetchLog={fetchLog}
-            retrievedLog={retrievedLog} 
+          <CycleEstimates roundForPlates={roundForPlates} fetchLog={fetchLog} retrievedLog={retrievedLog} 
           />
         </div>
         {displayLogUponLogin()}

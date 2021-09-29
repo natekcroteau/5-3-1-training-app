@@ -107,10 +107,20 @@ export default function CycleEstimates(props){
     function saveIfLoggedIn(){
         if(accountLoggedStatus === true){
             return <form className='log-submission-form' onSubmit={handleCycleSubmission} >
-                <label>Which Lift? </label>
-                <input type='text' value={lift} onChange={handleLiftChange} />
-                <label>Start Date </label>
-                <input type='date' value={startDate} onChange={handleStartDateChange} />
+                <label htmlFor='lift'>Which Lift? </label>
+                <input className='input-field' 
+                    id='lift' 
+                    type='text' 
+                    value={lift} 
+                    onChange={handleLiftChange} 
+                />
+                <label htmlFor='start-date'>Start Date </label>
+                <input className='input-field' 
+                    id='start-date' 
+                    type='date' 
+                    value={startDate} 
+                    onChange={handleStartDateChange} 
+                />
                 <input className='button-dark' type='submit' value='Save To Log'/>
                 {handleMessage(message)}
             </form>
@@ -123,8 +133,13 @@ export default function CycleEstimates(props){
     return (
         <div className='cycle-calculations'>
             <h3>Calculate 5/3/1 Training Loads</h3>
-            <label>Current 1RM</label>
-            <input type='text' value={maxWeight} onChange={handleMaxChange} />
+            <label htmlFor='current-1RM' >Current 1RM</label>
+            <input className='input-field' 
+                id='current-1rm' 
+                type='text' 
+                value={maxWeight} 
+                onChange={handleMaxChange} 
+            />
             <div className='cycle-month'>
                 <div className='cycle-week'>
                 <h4>Week One:</h4>

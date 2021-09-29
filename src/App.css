@@ -30,6 +30,13 @@
     border:#292E49 2px solid;
     border-radius: 16px;
 }
+.button-light:hover{
+    padding: 4px;
+    color: white;
+    background-color: #536976;
+    border:#292E49 2px solid;
+    border-radius: 16px;
+}
 .button-dark{
     padding: 4px;
     color: white;
@@ -37,7 +44,13 @@
     border:#292E49 2px solid;
     border-radius: 16px;
 }
-
+.button-dark:hover{
+    padding: 4px;
+    color: black;
+    background-color: #c5ddcf80;
+    border:#292E49 2px solid;
+    border-radius: 16px;
+}
 
 .account{
     display: flex;
@@ -165,4 +178,9 @@
     text-align: center;
     justify-content: space-between;
     color: white; 
+}
+
+
+.input-field{
+    border-radius: 4px;
 }
