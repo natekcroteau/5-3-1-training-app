@@ -25,32 +25,6 @@ Use [5-3-1 Training App](https://training-531-app.web.app/) Now!
 * CSS
 
 
-## Setup
-Install frontend and backend directories locally using the following commands:
-```
-git clone git@github.com:natekcroteau/5-3-1-training-app.git
-git clone git@github.com:natekcroteau/5-3-1-training-app-backend.git
-```
-
-Frontend Directory Setup:
-```
-npm install
-```
-
-Backend Directory Setup:
-```
-npm install
-```
--initiate and connect a PostgreSQL database, updating knexfile.js with credentials
-
-
-
-Start the backend and frontend server with the following command in each directory:
-```
-npm start
-```
-
-
 ## Code Example
 ```
 function handleLogin(event){
